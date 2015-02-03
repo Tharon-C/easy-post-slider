@@ -73,7 +73,7 @@ var $ = jQuery;
 //a timer will call this function, and the rotation will begin :)  
 //rotation speed and timer
     var speed = 4000;
-    var run = setInterval('rotate', speed);
+    var run = setInterval(rotate, speed);
 
 function rotate() {
     $('#ps-next').click();
