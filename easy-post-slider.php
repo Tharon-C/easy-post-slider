@@ -49,7 +49,7 @@ function easy_post_slider( $atts ){
 
 add_shortcode( 'post_slider', 'easy_post_slider' );
 
-function create_post_type_html5()
+function eps_post_type()
 {
     register_taxonomy_for_object_type('category', 'team'); // Register Taxonomies for Category
     register_taxonomy_for_object_type('post_tag', 'team');
@@ -85,4 +85,6 @@ function create_post_type_html5()
         ) // Add Category and Post Tags support
     ));
 }
+
+add_action('init', 'eps_post_type'); // Add our Custom Post Type
 ?>
