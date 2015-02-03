@@ -4,29 +4,29 @@ var $ = jQuery;
    
 
     //grab the width and calculate left value
-    var item_width = $('#slides li').outerWidth(); 
+    var item_width = $('#ps-slides li').outerWidth(); 
     var left_value = item_width * (-1); 
         
     //move the last item before first item, just in case user click prev button
-    $('#slides li:first').before($('#slides li:last'));
+    $('#ps-slides li:first').before($('#ps-slides li:last'));
     
     //set the default item to the correct position 
-    $('#slides ul').css({'left' : left_value});
+    $('#ps-slides ul').css({'left' : left_value});
 
     //if user clicked on prev button
-    $('#prev').click(function() {
+    $('#ps-prev').click(function() {
 
         //get the right position            
-        var left_indent = parseInt($('#slides ul').css('left')) + item_width;
+        var left_indent = parseInt($('#ps-slides ul').css('left')) + item_width;
 
         //slide the item            
-        $('#slides ul:not(:animated)').animate({'left' : left_indent}, 200,function(){    
+        $('#ps-slides ul:not(:animated)').animate({'left' : left_indent}, 200,function(){    
 
             //move the last item and put it as first item               
-            $('#slides li:first').before($('#slides li:last'));           
+            $('#ps-slides li:first').before($('#ps-slides li:last'));           
 
             //set the default item to correct position
-            $('#slides ul').css({'left' : left_value});
+            $('#ps-slides ul').css({'left' : left_value});
         
         });
 
@@ -37,19 +37,19 @@ var $ = jQuery;
 
  
     //if user clicked on next button
-    $('#next').click(function() {
+    $('#ps-next').click(function() {
         
         //get the right position
-        var left_indent = parseInt($('#slides ul').css('left')) - item_width;
+        var left_indent = parseInt($('#ps-slides ul').css('left')) - item_width;
         
         //slide the item
-        $('#slides ul:not(:animated)').animate({'left' : left_indent}, 200, function () {
+        $('#ps-slides ul:not(:animated)').animate({'left' : left_indent}, 200, function () {
             
             //move the first item and put it as last item
-            $('#slides li:last').after($('#slides li:first'));                  
+            $('#ps-slides li:last').after($('#ps-slides li:first'));                  
             
             //set the default item to correct position
-            $('#slides ul').css({'left' : left_value});
+            $('#ps-slides ul').css({'left' : left_value});
         
         });
                  
@@ -59,7 +59,7 @@ var $ = jQuery;
     });        
     
     //if mouse hover, pause the auto rotation, otherwise rotate it
-    $('#slides').hover(
+    $('#ps-slides').hover(
         
         function() {
             clearInterval(run);
@@ -76,11 +76,11 @@ var $ = jQuery;
     var run = setInterval('rotate', speed);
 
 function rotate() {
-    $('#next').click();
+    $('#ps-next').click();
 }
 
 $('.detail').hide();
-$('#team-detail').hide();
+$('#ps-team-detail').hide();
 
 $('.person').click(
     function() {
@@ -88,9 +88,9 @@ $('.person').click(
     var selected = $(person).data('name');
     console.log(selected);  
 
-    $('#team-detail').slideDown();
+    $('#ps-team-detail').slideDown();
     $('.detail').fadeOut(900);
-    $('#team-detail').children(".detail" ).each( function( index, element ){    
+    $('#ps-team-detail').children(".detail" ).each( function( index, element ){    
             if ( $(this).attr('id') == selected) {
                 $(this).fadeIn(900);
             } 
