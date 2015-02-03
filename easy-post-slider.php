@@ -42,9 +42,7 @@ function styles() {
 }
 
 function easy_post_slider( $atts ){
-        ob_start();
-        require 'team.php';
-        return ob_get_clean();
+        get_template_part('team');
 }
 
 add_shortcode( 'post_slider', 'easy_post_slider' );
