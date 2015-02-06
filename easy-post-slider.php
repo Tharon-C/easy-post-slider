@@ -43,7 +43,7 @@ function styles() {
 
 function easy_post_slider( $atts ){
     ob_start();
-        get_template_part('team');
+        get_template_part('team'); // !! want a way to include with plugin
     return ob_get_clean();
 }
 
